@@ -1,0 +1,4 @@
+## JS里this指向问题#### 首先，一般来说this指向的是window，但是在函数里时候是确定不了的，只是函数执行的时候到底指向谁呢，让我们来分析分析   	var div=document.getElementById(“div”);	div.onclick=function( ){		alert(“小女神”)		Console.log( this );    //div	}这里的this指向div,也就是说在函数里this最终指向的是调用它的对象，谁调用就指向谁,在这里这个对象就是div	Function fn( ){		Var i=”123”;		Console.log(this.i);  //undefined		Console.log(this)   //window	}	Fn( );由此可见这里的this指向的是window  如果我们在调用上面函数的时候写为  	Window. Fn( )    这里this也会指向window，当然我们也可以理解为函数在没有给到具体某个对象的时候，实际上是被window对象所点出来的。###### ` 综上我们可以总结出来： `  1：如果一个函数中有this，但是它没有被上一级的对象所调用，那么this指向的就是window 2：如果一个函数中有this，这个函数有被上一级的对象所调用，那么this指向的就是上一级的对象。 #### 在构造函数里的this
+	Function Fn( ){		This.str=”小女神”；	}	Var fn=new Fn( );	Console.log(fn.this)               //小女神
+	这是一个构造函数，我们用了new关键字就是创建一个对象实例，也就是实例化了一个对象，而构造函数里的this指向的是实例化对象对了，还有就是定时器里的this	SetInterval(function(){		Console.log(this)          //window	})
+	由此可见定时器里的this也是指向window的
