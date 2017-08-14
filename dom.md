@@ -77,28 +77,6 @@
 ###### childNodes 
 获取元素所有的子节点，包括空白文本节点
 
-#### 下面说一点关于获取窗口可视区域宽高的问题吧
-###### 获取浏览器窗口可视区域宽度
 
-	console.log(document.documentElement.clientWidth)
-	
-###### 获取浏览器窗口可视区域高度
-
-	console.log(document.documentElement.clientHeight)
-	
-###### 获取页面滚动高度
-	谷歌和Safari  document.body.scrollTop
-	其他浏览器     document.documentElement.scrollTop
-
-###### 调整窗口大小时触发的事件  
-	window.onresize = function(){
-		console.log("1:"+document.documentElement.clientWidth,"2:"+window.innerWidth)
-	}
-	
-###### 页面滚动时触发的事件	
-	
-	window.onscroll = function(){
-		document.body.scroll;
-	}
 
 
